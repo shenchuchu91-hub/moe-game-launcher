@@ -53,7 +53,7 @@
 
   <g transform="translate(180, 0)">
     <text x="0" y="80" class="title">🌸 moe-game-launcher 🌸</text>
-    <text x="0" y="120" class="subtitle">✨ Linux 游戏极速启动 · NVIDIA RTX 5060 满血调度 · Gamescope 144Hz ✨</text>
+    <text x="0" y="120" class="subtitle">✨ Linux 游戏启动与混合显卡调度工具 · Gamescope 与性能监控支持 ✨</text>
     <text x="0" y="165" class="tag">$ moe-game run -m -g /path/to/game.exe</text>
   </g>
 </svg>
