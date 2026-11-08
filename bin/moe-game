@@ -75,7 +75,7 @@ cmd_doctor() {
     echo -e "\n${C_BLUE}[2] 核心运行组件检测:${C_RESET}"
     for bin in wine gamescope mangohud steam; do
         if command -v "$bin" >/dev/null 2>&1; then
-            VER=$("$bin" --version 2>/dev/null | head -n1 || echo "已就绪")
+            VER=$(pacman -Q "$bin" 2>/dev/null | awk '{print $2}' || timeout 0.5 "$bin" --version 2>&1 | head -n1 || echo "已就绪")
             echo -e "  ${C_GREEN}✔${C_RESET} ${bin}: ${C_GRAY}${VER}${C_RESET}"
         else
             echo -e "  ${C_YELLOW}⚠${C_RESET} ${bin}: 未安装 (可通过包管理器安装)"
@@ -204,30 +204,6 @@ cmd_run() {
         exec "${CMD_WRAP[@]}" "$TARGET" "$@"
     fi
 }
-
-# 顶层路由
-case "$1" in
-    run)
-        shift
-        cmd_run "$@"
-        ;;
-    doctor)
-        cmd_doctor
-        ;;
-    hud-install)
-        cmd_hud_install
-        ;;
-    steam-options)
-        cmd_steam_options
-        ;;
-    -h|--help|help|"")
-        usage
-        ;;
-    *)
-        # 默认如果用户直接输入 `moe-game /path/to/game.exe`
-        cmd_run "$@"
-        ;;
-esac
 
 # 顶层路由
 case "$1" in
