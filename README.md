@@ -4,20 +4,6 @@ hybrid gpu dispatch, gamescope 144hz pipeline, steam launch wrapper.
 
 ---
 
-## 运行环境与参考配置规格 (System Specs & Requirements)
-
-为便于评估工具在不同设备上的适用性，下表列出了**作者实测验证环境**与建议的**基础运行门槛**：
-
-| 项目 | 测试验证参考规格 (Tested Rig) | 建议最低运行门槛 (Minimum Requirements) |
-| :--- | :--- | :--- |
-| **操作系统** | Nyarch Linux x86_64 (Linux Kernel 7.x, Wayland) | 常见 64 位 Linux 发行版 (支持 Wayland / X11) |
-| **显卡支持 (GPU)** | NVIDIA RTX 5060 Laptop (驱动版本: 565+/615+) | 任何支持 Vulkan 1.3 / OpenGL 4.5 的独显或现代核显 |
-| **显卡调度** | NVIDIA Prime Offload 独显渲染 | 支持 Prime 渲染或独显直连 |
-| **显示规格** | 1080p @ 144Hz IPS 高刷新率屏 | 1080p @ 60Hz 标准显示屏 |
-| **核心依赖** | `wine`, `mangohud`, `gamescope`, `fish` / `bash` | `wine` 或 `steam` 运行环境 |
-
----
-
 ## 主要功能 (Features)
 
 - **Prime Offload 渲染支持**：自动注入 `__NV_PRIME_RENDER_OFFLOAD=1` 等环境变量，确保双显卡笔记本由独立显卡承担游戏渲染；
