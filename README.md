@@ -1,3 +1,9 @@
+<div align="center">
+  <img src="./assets/banner.svg" width="100%" alt="Monochrome Banner"/>
+</div>
+
+---
+
 # moe-game-launcher
 
 hybrid gpu dispatch, gamescope 144hz pipeline, steam launch wrapper.
@@ -68,4 +74,10 @@ moe-game steam-options
 
 - GitHub: [@shenchuchu91-hub](https://github.com/shenchuchu91-hub)
 - 开源许可: [MIT License](LICENSE)
-- Powered by Nyarch Linux & Arch Linux Rice Community
+- Arch Linux & Minimalist Systems Engineering
+
+---
+
+<div align="center">
+  <sub>雨声未停 · 保持冷清 · 独行其道</sub>
+</div>
