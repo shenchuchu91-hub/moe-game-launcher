@@ -6,76 +6,42 @@
 
 # 游戏启动脚本
 
-双显卡笔记本上，把游戏交给独显，可选 Gamescope 锁帧。只改自己用户目录里的启动命令。
+双显卡笔记本上，游戏经常只跑在核显上。这个脚本把渲染交给 NVIDIA 独显，可选 Gamescope 锁帧和 MangoHud。它只在你自己的家目录里放一个命令，不改系统目录。
 
-## 主要功能 (Features)
+## 它做什么
 
-- **Prime Offload 渲染支持**：自动注入 `__NV_PRIME_RENDER_OFFLOAD=1` 等环境变量，确保双显卡笔记本由独立显卡承担游戏渲染；
-- **Gamescope 显示匹配**：支持通过 Gamescope 进行 1080p 144Hz 锁帧与 FSR 超分辨率锐化；
-- **MangoHud 性能监控配置**：提供配套的淡色主题配置，直观显示 GPU 占用、温度、功耗与帧率；
-- **运行环境状态检测 (`doctor`)**：快速检测系统当前显卡驱动、Vulkan 环境及游戏核心组件安装状态。
+- 加上 `__NV_PRIME_RENDER_OFFLOAD=1` 这一类变量，让独显来画
+- Gamescope：1080p、144Hz、FSR
+- MangoHud：占用、温度、功耗、帧数
+- `doctor`：看驱动、Vulkan、游戏相关的包装了没有
 
----
-
-## 安装与部署 (Installation)
-
-在终端中执行以下命令完成部署：
+## 安装
 
 ```bash
-# 克隆仓库并安装
 git clone https://github.com/shenchuchu91-hub/moe-game-launcher.git ~/.local/share/moe-game-launcher
 cd ~/.local/share/moe-game-launcher
 chmod +x install.sh
 ./install.sh
 ```
 
-### 安全机制与干净卸载：
-- **无损软链接**：安装脚本仅向用户目录 `~/.local/bin/moe-game` 建立软链接，不改动任何系统级 root 目录；
-- **一键卸载**：若不再需要本工具，执行以下两行即可干净移除：
- ```bash
- rm -f ~/.local/bin/moe-game
- rm -rf ~/.local/share/moe-game-launcher
- ```
+卸掉：
 
----
-
-## 使用方法 (Usage)
-
-### 1. 运行游戏程序
 ```bash
-# 挂载独显渲染并开启 MangoHud 性能监视
+rm -f ~/.local/bin/moe-game
+rm -rf ~/.local/share/moe-game-launcher
+```
+
+## 用
+
+```bash
 moe-game run -m /path/to/game.exe
-
-# 启用 Gamescope（144Hz 锁帧 + FSR 锐化）运行
 moe-game run -g -m /path/to/game.exe
-```
-
-### 2. 系统环境检测
-```bash
 moe-game doctor
-```
-
-### 3. 获取 Steam 启动项推荐
-```bash
 moe-game steam-options
 ```
 
----
+`-m` 开 MangoHud。`-g` 再套一层 Gamescope。`steam-options` 打印一段可以贴进 Steam 启动选项的参数。
 
-## 免责声明与安全守则 (Disclaimer)
+不管超频，不改显卡固件，也不往游戏里注入东西。许可是 [MIT](LICENSE)。
 
-> ⚠ **使用须知**：本工具仅提供显卡环境变量委派与窗口显示层管理，不涉及硬件超频、固件改写或作弊注入。完整安全规范请参阅全局 [免责声明与通用安全规范 (Disclaimer)](https://github.com/shenchuchu91-hub/disclaimer)。
-
----
-
-## 版权与致谢 (License & Credits)
-
-- GitHub: [@shenchuchu91-hub](https://github.com/shenchuchu91-hub)
-- 开源许可: [MIT License](LICENSE)
-- Arch Linux & Minimalist Systems Engineering
-
----
-
-<div align="center">
-  <sub>雨还在下</sub>
-</div>
+<p align="center"><sub>雨还在下</sub></p>
