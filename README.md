@@ -1,14 +1,12 @@
-<div align="center">
-  <img src="./assets/banner.svg" width="100%" alt="Monochrome Banner"/>
-</div>
+<p align="center">
+  <img src="./assets/banner.jpg" width="100%" alt="" />
+</p>
 
----
+<p align="center"><sub>雨还在下</sub></p>
 
-# moe-game-launcher
+# 游戏启动脚本
 
-hybrid gpu dispatch, gamescope 144hz pipeline, steam launch wrapper.
-
----
+双显卡笔记本上，把游戏交给独显，可选 Gamescope 锁帧。只改自己用户目录里的启动命令。
 
 ## 主要功能 (Features)
 
@@ -79,5 +77,5 @@ moe-game steam-options
 ---
 
 <div align="center">
-  <sub>雨声未停 · 保持冷清 · 独行其道</sub>
+  <sub>雨还在下</sub>
 </div>
